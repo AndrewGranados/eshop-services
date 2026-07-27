@@ -1,0 +1,45 @@
+## .NET
+bin/
+obj/
+*.exe
+*.dll
+*.so
+*.pdb
+*.cache
+*.suo
+*.user
+*.userprefs
+*.csproj.user
+*.dbmdl
+*.log
+TestResults/
+
+## Visual Studio
+.vs/
+*.sln.docstates
+*.sln.ide/
+
+## JetBrains Rider
+.idea/
+*.sln.iml
+
+## VS Code
+.vscode/
+*.code-workspace
+
+## Docker
+docker-compose.dcproj
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## Stray root files (misplaced)
+/ANALISISMALO.md
+/VERIFICACION.md
+/ICommand.cs
+/ICommandHandler.cs
+/IQuery.cs
+/IQueryHandler.cs
+/IQueryHandler.txt
+/launchSettings.json
