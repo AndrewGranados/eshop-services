@@ -22,6 +22,16 @@ builder.Services.AddProblemDetails();
 
 builder.Services.AddCarter(); //CARTER -> url's (para q sean apis)
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("frontend", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 builder.Services.AddMarten/*MARTEN -> bases de datos (conexión a bdd)*/(opts =>
 {
     opts.Connection(builder.Configuration.GetConnectionString("Database")!);
@@ -29,6 +39,7 @@ builder.Services.AddMarten/*MARTEN -> bases de datos (conexión a bdd)*/(opts =>
 
 var app = builder.Build();
 
+app.UseCors("frontend");
 
 app.MapCarter();
 app.UseExceptionHandler(options => { });

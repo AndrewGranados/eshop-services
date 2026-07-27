@@ -11,6 +11,17 @@ var assembly = typeof(Program).Assembly;
 // Add services to the container.
 
 builder.Services.AddCarter();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("frontend", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 builder.Services.AddMediatR(conf =>
 {
     conf.RegisterServicesFromAssembly(assembly);
@@ -39,6 +50,8 @@ builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 builder.Services.AddHealthChecks();
 var app = builder.Build();
 
+
+app.UseCors("frontend");
 
 //configuramos las peticiones http pipeline
 app.MapCarter();
