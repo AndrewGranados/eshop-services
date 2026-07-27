@@ -54,10 +54,10 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:8080
-      - ConnectionStrings__Database=Host=basketdb;Port=5432;Database=BasketDb;Username=postgres;Password=postgres;Include Error Detail=true
+      - ConnectionStrings__Database=Host=catalogdb;Port=5432;Database=catalogdb;Username=postgres;Password=postgres;Include Error Detail=true
       - ConnectionStrings__Redis=distributedcache:6379
     depends_on:
-      - basketdb
+      - catalogdb
       - distributedcache
     ports:
       - "6001:8080"
